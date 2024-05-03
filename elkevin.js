@@ -9,49 +9,49 @@ class Videos{
     this.link = createVideo(link, function(){console.log("video cargado")});
     this.visualizar = visualizar;
   }
-  //esta sera la posicion de los videos
-  posicion(){
-    this.x = 440;
-    this.y = 550;
-  }
   //aca se muestra el video
   mostrar(){
     if(this.visualizar == 1){
+    //activa la visualizacion del video
     this.link.show();
-    if(width >= 1500){
-    this.link.position(width*0.25,height*0.0119);}
-    else{this.link.position(-width*0.05,height*0.0119);}
-    this.link.size(1000, 700);
-    this.link.time(10);
+    //es la posicion del video
+    this.link.position(width*0.25,height*0.014);
+   //el tamaño que ocupa en la pantalla 
+    this.link.size(900, 600);
+    //activa la reproduccion del video
     this.link.play();
+    //es el tiempo en el que comienza el video
     this.link.time(55);
+    //deja de reproducirce
     this.visualizar = 2;}
     //si el video no esta reproduciendoce entonces que no se muestre
     else if(this.visualizar == 0){
+    //el video no se visualizara
     this.link.hide();}
-    //si termino la reproduccion entonces que no se muestre (no funciona ahora)
-    this.link.onended(() => {this.link.hide()});
   }
 
 }
 
 class Opciones{
-  constructor(x, y, numOpcion, texto, imagen, linkVideo){
+  constructor(x, y, numOpcion, texto, boton, imagen, linkVideo){
     this.x = width*x;
     this.y = height*y;
     this.numero = numOpcion;
     this.texto = texto;
+    this.boton = boton;
     this.imagen = imagen;
     this.video = linkVideo;
   }
   mostrar(){
     fill(0);
-    ellipse(this.x,this.y,100,100);
+    let button = this.boton;
+    button = createButton(this.texto);
+    button.position(this.x, this.y);
   }
 }
 
 function setup() {
-  createCanvas(1000, 700);
+  createCanvas(900, 600);
   cargaVideos();
   cargarOpciones();
   /*let video = createVideo("./video1.mp4", () => console.log("loaded video"));
@@ -67,16 +67,19 @@ function setup() {
 
 //es una variable de confirmacion
 let val=2;
-
+let x=0.25;
+let y=0.35;
 function draw() {
   background(230);
 
   if (isDone) {ellipse(10, 10, 40, 40);
   }
+  //mide la distancia entre el objeto negro y el mouse
+  let distance = dist(mouseX,mouseY, opcion1.x, opcion1.y);
   
   
 
-
+  //hace que la clase muestre el video
   videos1.mostrar();
   //cuando el video1 termine se escondera y mostrara el video 2
   videos1.link.onended(() => {
@@ -88,23 +91,28 @@ function draw() {
   videos3.mostrar();
   videos4.mostrar();
 
+  //aparece una de las opciones
   opcion1.mostrar();
-  fill(200);
+  option1.boton.mousePressed(pe);
+  //fill(200);
   ellipse(width*0.25,height*0.35,100,100);
   ellipse(width*0.50,height*0.55,100,100);
   ellipse(width*0.75,height*0.35,100,100);
  
 }
+function pe(){
+  fill(0);
+}
 
 function cargarOpciones(){
-  // posicionX , posicionY, numero de opcion, link de imagen, link de la clase video
+  // posicionX , posicionY, numero de opcion, nombre, boton, link de imagen, link de la clase video
   opcion1 = new Opciones("0.25","0.55","1","opcion","./cat.png","videos1");
 
 }
 
 function cargaVideos(){
   //                nombre, link del video  ,1 o 0 para visualizar el video
-  videos1 = new Videos("1", "./video1.mp4","1");
+  videos1 = new Videos("1", "./video1.mp4","0");
   videos2 = new Videos("1", "./video1.mp4","0");
   videos3 = new Videos("1", "./video1.mp4","0");
   videos4 = new Videos("1", "./video1.mp4","0");
