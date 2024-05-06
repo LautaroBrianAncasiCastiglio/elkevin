@@ -92,16 +92,23 @@ function draw() {
   videos4.mostrar();
 
   //aparece una de las opciones
-  opcion1.mostrar();
-  option1.boton.mousePressed(pe);
+  //opcion1.mostrar();
+  //option1.
+  let boton = createButton("peeerquin");
+  boton.position(300,300);
+  boton.mousePressed(pe);
   //fill(200);
   ellipse(width*0.25,height*0.35,100,100);
   ellipse(width*0.50,height*0.55,100,100);
   ellipse(width*0.75,height*0.35,100,100);
  
 }
+
 function pe(){
   fill(0);
+  if(mouseIsPressed === true){
+    
+  }
 }
 
 function cargarOpciones(){
