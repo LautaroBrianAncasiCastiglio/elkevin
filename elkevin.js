@@ -47,6 +47,7 @@ class Opciones {
     fill(0);
     ellipse(this.x, this.y, 100, 100);
     image(img, this.x - 50, this.y - 50);
+    
   }
 }
 
