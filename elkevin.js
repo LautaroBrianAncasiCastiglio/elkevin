@@ -40,14 +40,15 @@ class Opciones {
     this.numero = numOpcion;
     this.texto = texto;
     this.boton = boton;
-    this.imagen = imagen;
+    this.imagen = createImg(imagen);
     this.video = linkVideo;
+
   }
   mostrar() {
     fill(0);
     ellipse(this.x, this.y, 100, 100);
     image(img, this.x - 50, this.y - 50);
-    
+
   }
 }
 
@@ -107,7 +108,7 @@ function draw() {
 
   fill(200);
   ellipse(width * 0.25, height * 0.35, 100, 100);
-  ellipse(width * 0.55, height * 0.55, 100, 100);
+  ellipse(width * 0.50, height * 0.55, 100, 100);
   ellipse(width * 0.75, height * 0.35, 100, 100);
 
 }
@@ -115,9 +116,9 @@ function draw() {
 
 function cargarOpciones() {
   // posicionX , posicionY, numero de opcion, nombre, boton, link de imagen, link de la clase video
-  opcion1 = new Opciones("0.25", "0.55", "1", "opcion", "./cat.png", "videos1");
-  opcion2 = new Opciones("0.50", "0.35", "1", "opcion", "./cat.png", "videos1");
-  opcion3 = new Opciones("0.75", "0.55", "1", "opcion", "./cat.png", "videos1");
+  opcion1 = new Opciones("0.25", "0.55", "1", "opcion", "./cat.jpg", "videos1");
+  opcion2 = new Opciones("0.50", "0.35", "1", "opcion", "./cat.jpg", "videos1");
+  opcion3 = new Opciones("0.75", "0.55", "1", "opcion", "./cat.jpg", "videos1");
 }
 
 function cargaVideos() {
