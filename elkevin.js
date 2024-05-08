@@ -82,9 +82,7 @@ class Opcion {
   mostrar() {
     fill(0);
     ellipse(this.x, this.y, 100, 100);
-    this.imagen.position(this.x + 260, this.y - 30);
-    this.imagen.size(70, 70);
-    this.imagen.show();
+    image(img, this.x - 50, this.y - 50);
   }
 }
 
@@ -93,6 +91,27 @@ let video2;
 
 let option1;
 let option4;
+
+function loadOptions() {
+  option1 = new Rectangle({
+    x: 400,
+    y: 200,
+    width: 200,
+    height: 100,
+  });
+
+  option4 = new Rectangle({
+    x: width * 2,
+    y: height * 2,
+    width: 200,
+    height: 50,
+  });
+}
+
+function loadVideos() {
+  video1 = createVideo("./video1.mp4", () => console.log("video 1 cargado"));
+  video2 = createVideo("./video1.mp4", () => console.log("video 2 cargado"));
+}
 
 function loadOptions() {
   option1 = new Rectangle({
