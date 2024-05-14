@@ -47,7 +47,7 @@ class Opciones {
   mostrar() {
     fill(0);
     ellipse(this.x, this.y, 100, 100);
-    image(img, this.x - 50, this.y - 50);
+    image(img, this.x - 31, this.y - 32);
 
   }
 }
@@ -124,7 +124,8 @@ function cargarOpciones() {
 function cargaVideos() {
   //                nombre, link del video  ,1 o 0 para visualizar el video
   videos1 = new Videos("1", "./video1.mp4", "0");
-  videos2 = new Videos("1", "./video1.mp4", "0");
+
+  videos2 = new Videos("1", "./video1.mp4", "1");
   videos3 = new Videos("1", "./video1.mp4", "0");
   videos4 = new Videos("1", "./video1.mp4", "0");
 }
