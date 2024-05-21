@@ -13,9 +13,6 @@
 
 function showBackgroundVideo(video) {
     video.show();
-    video.position(width * 0.25, height * 0.014);
-    video.size(900, 600);
     video.play();
-    video.time(55);
+    video.position(width * 4, height * 4);
 }
-
