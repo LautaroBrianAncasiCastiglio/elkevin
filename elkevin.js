@@ -1,3 +1,4 @@
+
 class Rectangle {
   constructor({ x, y, width, height }) {
     this.x = x;
@@ -38,36 +39,6 @@ function checkIsClicked(element, callback) {
   }
 }
 
-class Video {
-  //aqui se declara el nombre del
-  //video(para reconocer el tipo de video que hablamos)
-  //y el link de este video y si se visualiza(1) o no(0)
-  constructor(name, link, visualizar) {
-    this.name = name;
-    this.videoElement = createVideo(link, () => console.log("video cargado"));
-    this.visualizar = visualizar;
-  }
-  //aca se muestra el video
-  mostrar() {
-    if (this.visualizar == 1) {
-      //activa la visualizacion del video
-      this.videoElement.show();
-      //es la posicion del video
-      this.videoElement.position(width * 0.25, height * 0.014);
-      //el tamaño que ocupa en la pantalla
-      this.videoElement.size(900, 600);
-      //activa la reproduccion del video
-      this.videoElement.play();
-      //es el tiempo en el que comienza el video
-      this.videoElement.time(55);
-    }
-    //si el video no esta reproduciendoce entonces que no se muestre
-    else if (this.visualizar == 0) {
-      //el video no se visualizara
-      this.videoElement.hide();
-    }
-  }
-}
 
 class Opcion {
   constructor(x, y, numOpcion, texto, boton, imagen, linkVideo) {
@@ -86,9 +57,6 @@ class Opcion {
   }
 }
 
-let video1;
-let video2;
-
 let option1;
 let option4;
 
@@ -100,38 +68,6 @@ function loadOptions() {
     height: 100,
   });
 
-  option4 = new Rectangle({
-    x: width * 2,
-    y: height * 2,
-    width: 200,
-    height: 50,
-  });
-}
-
-function loadVideos() {
-  video1 = createVideo("./video1.mp4", () => console.log("video 1 cargado"));
-  video2 = createVideo("./video1.mp4", () => console.log("video 2 cargado"));
-}
-
-function loadOptions() {
-  option1 = new Rectangle({
-    x: 400,
-    y: 200,
-    width: 200,
-    height: 100,
-  });
-
-  option4 = new Rectangle({
-    x: width * 2,
-    y: height * 2,
-    width: 200,
-    height: 50,
-  });
-}
-
-function loadVideos() {
-  video1 = createVideo("./video1.mp4", () => console.log("video 1 cargado"));
-  video2 = createVideo("./video1.mp4", () => console.log("video 2 cargado"));
 }
 
 function setup() {
@@ -141,11 +77,11 @@ function setup() {
   cargarOpciones();
   img = loadImage("./cat.jpg");
 
-  video1.hide();
-  video2.hide();
+  hideVideos();
 
   //cuando el video1 termine se escondera y mostrara el video 2
   video1.onended(() => {
+
     video1.hide();
     showBackgroundVideo(video2);
   });
@@ -155,19 +91,8 @@ function setup() {
   });
 }
 
-function showBackgroundVideo(video) {
-  video.show();
-  video.position(width * 0.25, height * 0.014);
-  video.size(900, 600);
-  video.play();
-  video.time(55);
-}
 
-//es una variable de confirmacion
-let val = 2;
-let x = 0.25;
-let y = 0.35;
-
+                                                                                  //obsidian
 function draw() {
   background(230);
 
@@ -180,7 +105,6 @@ function draw() {
   }
 
   option1.draw();
-  option4.draw();
 }
 
 function cargarOpciones() {
@@ -190,7 +114,3 @@ function cargarOpciones() {
   opcion3 = new Opcion("0.75", "0.55", "1", "opcion", "./cat.jpg", "videos1");
 }
 
-function cargaVideos() {
-  // nombre, link del video  ,1 o 0 para visualizar el video
-  videos1 = new Video("1", "./video1.mp4", "0");
-}
