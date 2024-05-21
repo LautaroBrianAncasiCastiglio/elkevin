@@ -18,3 +18,4 @@ function showBackgroundVideo(video) {
     video.play();
     video.time(55);
 }
+
