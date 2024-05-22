@@ -9,7 +9,7 @@ class OptionSystem {
 
         options.forEach((option, index) => {
             const newButton = new Button({
-                x: width * (0.2 * (index + 1)),
+                x: width * (0.275 * (index + 1)),
                 y: height * 0.8,
                 width: OPTION_WIDTH,
                 height: OPTION_HEIGHT,
