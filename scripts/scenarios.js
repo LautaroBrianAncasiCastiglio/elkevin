@@ -12,6 +12,10 @@ class Scenario {
         showBackgroundVideo(this.initialVideo);
     }
 
+    hideInitialVideo() {
+        hideBackgroundVideo(this.initialVideo);
+    }
+
     draw() {
         image(this.initialVideo, 0, 0, width, height);
         this.optionSystem.drawOptions();

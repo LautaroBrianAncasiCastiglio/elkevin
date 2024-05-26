@@ -1,8 +1,11 @@
 let optionSystem1;
 let scenario1;
+let botonPausa;
 
 function setup() {
     createCanvas(900, 600);
+    
+    botonPausa = new Pause();
 
     optionSystem1 = new OptionSystem([
         {
@@ -32,10 +35,12 @@ function setup() {
         optionSystem: optionSystem1,
     });
     scenario1.showInitialVideo();
+    scenario1.hideInitialVideo();
     scenario1.showOptions();
+    
 }
-
 function draw() {
     background(230);
     scenario1.draw();
+    botonPausa.showButtonPause();
 }
