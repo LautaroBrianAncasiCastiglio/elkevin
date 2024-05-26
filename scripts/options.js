@@ -1,16 +1,31 @@
 const OPTION_WIDTH = 100;
 const OPTION_HEIGHT = 50;
+const OPTION_GAP = 50;
 
 class OptionSystem {
     constructor(options) {
         this.options = options;
+        this.buttons = this.generateButtons();
+    }
 
+    generateButtons() {
         const buttons = [];
 
-        options.forEach((option, index) => {
+        const allOptionsWidth =
+            OPTION_WIDTH * this.options.length +
+            OPTION_GAP * (this.options.length - 1);
+
+        const startingXPosition = width / 2 - allOptionsWidth / 2;
+
+        this.options.forEach((option, index) => {
+            const yPosition = height * 0.9;
+            const xPosition =
+                startingXPosition + (OPTION_WIDTH + OPTION_GAP) * index;
+
             const newButton = new Button({
-                x: width * (0.2 * (index + 1)),
-                y: height * 0.8,
+                x: xPosition,
+                y: yPosition,
+                align_x: 1,
                 width: OPTION_WIDTH,
                 height: OPTION_HEIGHT,
                 content: option.content,
@@ -22,6 +37,7 @@ class OptionSystem {
                 background: "#0e04a1",
                 color: "#ffffff",
             });
+
             newButton.style("hover", {
                 text_size: 16,
                 background: "#ff0000",
@@ -31,7 +47,7 @@ class OptionSystem {
             buttons.push(newButton);
         });
 
-        this.buttons = buttons;
+        return buttons;
     }
 
     drawOptions() {
