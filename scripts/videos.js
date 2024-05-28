@@ -13,8 +13,8 @@
 
 function showBackgroundVideo(video) {
     video.show();
-    video.play();
-   //video.position(width * -4, height * -4);
+    video.autoplay();
+    //video.position(width * -4, height * -4);
 }
 
 function hideBackgroundVideo(video) {
