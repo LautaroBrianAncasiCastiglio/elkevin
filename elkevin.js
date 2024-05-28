@@ -1,7 +1,7 @@
 let optionSystem1;
 let scenario1;
 let botonPausa;
-
+let slider;
 function setup() {
     createCanvas(900, 600);
     
@@ -34,13 +34,28 @@ function setup() {
         ),
         optionSystem: optionSystem1,
     });
+    
     scenario1.showInitialVideo();
     scenario1.hideInitialVideo();
-    scenario1.showOptions();
+    
     
 }
+
+let fun=1;
 function draw() {
     background(230);
     scenario1.draw();
+    if(fun == 1){
+        rotate(180);
+        slider = createSlider(0, 1, 0.5 , 0.1);
+        slider.position(1150, 600);
+        slider.value(125);
+        fun=0;
+    }
+    let volumen = slider.value() ;
+    let audio = scenario1.initialVideo;
+    audio.volume(volumen);
+    console.log(volumen);
+
     botonPausa.showButtonPause();
 }
