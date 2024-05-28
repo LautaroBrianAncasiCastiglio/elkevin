@@ -4,7 +4,7 @@ let botonPausa;
 
 function setup() {
     createCanvas(900, 600);
-    
+
     botonPausa = new Pause();
 
     optionSystem1 = new OptionSystem([
@@ -16,9 +16,7 @@ function setup() {
         },
         {
             content: "Opcion 2",
-            onClick: () => {
-                console.log("22222");
-            },
+            onClick: () => {},
         },
         {
             content: "Opcion 3",
@@ -34,10 +32,13 @@ function setup() {
         ),
         optionSystem: optionSystem1,
     });
+
+    scenario1.initialVideo.onended(() => {
+        scenario1.showOptions();
+    });
+
     scenario1.showInitialVideo();
     scenario1.hideInitialVideo();
-    scenario1.showOptions();
-    
 }
 function draw() {
     background(230);

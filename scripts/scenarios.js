@@ -8,6 +8,10 @@ class Scenario {
         this.optionSystem.showOptionsInScreen();
     }
 
+    hideOptions() {
+        this.optionSystem.hideOptionsInScreen();
+    }
+
     showInitialVideo() {
         showBackgroundVideo(this.initialVideo);
     }
