@@ -2,9 +2,12 @@ let optionSystem1;
 let scenario1;
 let botonPausa;
 let slider;
+let sliderV;
+let gui;
 function setup() {
     createCanvas(900, 600);
-    
+
+    gui = createGui();
     botonPausa = new Pause();
 
     optionSystem1 = new OptionSystem([
@@ -16,9 +19,7 @@ function setup() {
         },
         {
             content: "Opcion 2",
-            onClick: () => {
-                console.log("22222");
-            },
+            onClick: () => {},
         },
         {
             content: "Opcion 3",
@@ -34,16 +35,21 @@ function setup() {
         ),
         optionSystem: optionSystem1,
     });
-    
+
+
+    scenario1.initialVideo.onended(() => {
+        scenario1.showOptions();
+    });
+
     scenario1.showInitialVideo();
     scenario1.hideInitialVideo();
-    
-    
+
 }
 
 let fun=1;
 function draw() {
     background(230);
+    drawGui();
     scenario1.draw();
     if(fun == 1){
         rotate(180);

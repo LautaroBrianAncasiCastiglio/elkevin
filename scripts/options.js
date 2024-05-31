@@ -3,6 +3,8 @@ const OPTION_HEIGHT = 50;
 const OPTION_GAP = 50;
 
 class OptionSystem {
+    visible = false;
+
     constructor(options) {
         this.options = options;
         this.buttons = this.generateButtons();
@@ -51,10 +53,14 @@ class OptionSystem {
     }
 
     drawOptions() {
-        this.buttons.forEach((button) => button.draw());
+        if (this.visible) this.buttons.forEach((button) => button.draw());
     }
 
-    showOptionsInScreen() {}
+    showOptionsInScreen() {
+        this.visible = true;
+    }
 
-    hideOptionsInScreeen() {}
+    hideOptionsInScreen() {
+        this.visible = false;
+    }
 }
