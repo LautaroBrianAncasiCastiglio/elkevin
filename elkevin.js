@@ -1,6 +1,7 @@
 let optionSystem1;
 let scenario1;
 let botonPausa;
+let slider;
 
 function setup() {
     createCanvas(900, 600);
@@ -39,9 +40,18 @@ function setup() {
 
     scenario1.showInitialVideo();
     scenario1.hideInitialVideo();
+
+    slider = createSlider(0, 1, 1,0.1);
+    slider.position(-200, 100);
+    slider.value(0.5);
+    slider.style('transform', 'rotate(270deg)');
+    slider.style('height', '600px');
+    slider.style('width', '600px');
 }
 function draw() {
     background(230);
     scenario1.draw();
+    let volume = slider.value();
+    scenario1.initialVideo.volume(volume);
     botonPausa.showButtonPause();
 }
