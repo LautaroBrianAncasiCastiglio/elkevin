@@ -3,14 +3,27 @@ const OPTION_HEIGHT = 50;
 const OPTION_GAP = 50;
 
 class OptionSystem {
-    visible = false;
+    #visible = false;
+    #buttons;
 
     constructor(options) {
         this.options = options;
-        this.buttons = this.generateButtons();
+        this.#buttons = this.#generateButtons();
     }
 
-    generateButtons() {
+    draw() {
+        if (this.#visible) this.#buttons.forEach((button) => button.draw());
+    }
+
+    show() {
+        this.#visible = true;
+    }
+
+    hide() {
+        this.#visible = false;
+    }
+
+    #generateButtons() {
         const buttons = [];
 
         const allOptionsWidth =
@@ -51,16 +64,6 @@ class OptionSystem {
 
         return buttons;
     }
-
-    drawOptions() {
-        if (this.visible) this.buttons.forEach((button) => button.draw());
-    }
-
-    showOptionsInScreen() {
-        this.visible = true;
-    }
-
-    hideOptionsInScreen() {
-        this.visible = false;
-    }
 }
+
+export default OptionSystem;

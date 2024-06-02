@@ -1,3 +1,5 @@
+var currentVideo = null;
+
 let optionSystem1;
 let scenario1;
 let optionSystem2;
@@ -39,8 +41,8 @@ function setup() {
         {
             content: "Opcion 2",
             onClick: () => {
-            scenario2.showInitialVideo();
-            scenario2.hideInitialVideo();
+                scenario2.showInitialVideo();
+                scenario2.hideInitialVideo();
             },
         },
         {
@@ -108,15 +110,15 @@ function setup() {
     scena3.hideInitialVideo();
 
     //aca se configura el slider
-    slider = createSlider(0, 1, 1,0.1);
+    slider = createSlider(0, 1, 1, 0.1);
     slider.position(50, 150);
     slider.value(0.5);
-    slider.style('transform', 'rotate(270deg)');
-    slider.style('height', 'height * 0.6');
-    slider.style('width', 'width * 0.6');
+    slider.style("transform", "rotate(270deg)");
+    slider.style("height", "height * 0.6");
+    slider.style("width", "width * 0.6");
 }
 
-let fun=1;
+let fun = 1;
 function draw() {
     background(230);
     let volume = slider.value();
