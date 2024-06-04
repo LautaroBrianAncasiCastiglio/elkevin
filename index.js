@@ -15,7 +15,7 @@ function setup() {
     volumeSlider = new VolumeSlider();
 
     scenario1 = new Scenario({
-        initialVideo: createVideo("./video1.mp4", () =>
+        initialVideo: createVideo("./assets/video1.mp4", () =>
             console.log("video 1 cargado")
         ),
         optionSystem: new OptionSystem([
@@ -32,7 +32,7 @@ function setup() {
     });
 
     scenario2 = new Scenario({
-        initialVideo: createVideo("./video1.mp4", () =>
+        initialVideo: createVideo("./assets/video1.mp4", () =>
             console.log("video 2 cargado")
         ),
         optionSystem: new OptionSystem([
