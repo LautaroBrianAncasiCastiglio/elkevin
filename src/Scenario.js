@@ -16,7 +16,6 @@ class Scenario {
         });
 
         this.initialVideo.play();
-        this.initialVideo.time(60);
     }
 
     end() {
