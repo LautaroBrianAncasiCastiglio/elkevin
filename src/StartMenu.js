@@ -1,8 +1,8 @@
 class StartMenu {
     #visible = true;
-    image = loadImage('../assets/rb20.jpg')
-    
-    constructor({onStart}) {
+    image = loadImage("../assets/rb20.jpg");
+
+    constructor({ onStart }) {
         this.onStart = onStart;
         this.button = new Button({
             x: width * 0.5,
@@ -10,13 +10,19 @@ class StartMenu {
             align_x: 0,
             width: 150,
             height: 50,
-            content: 'Comenzar',
-            on_press: this.onStart
-        })
-        
+            content: "Comenzar",
+            on_press: this.onStart,
+        });
+
         this.button.style("default", {
             text_size: 16,
-            background: "#0e04a1",
+            background: "#2A2929",
+            color: "#ffffff",
+        });
+
+        this.button.style("hover", {
+            text_size: 16,
+            background: "#444444",
             color: "#ffffff",
         });
     }
@@ -27,9 +33,9 @@ class StartMenu {
 
     draw() {
         if (!this.#visible) return;
-        background(this.image)
-        this.button.draw()
+        background(this.image);
+        this.button.draw();
     }
 }
 
-export default StartMenu
+export default StartMenu;

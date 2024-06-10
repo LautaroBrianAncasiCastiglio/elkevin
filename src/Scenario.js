@@ -1,4 +1,6 @@
 class Scenario {
+    #visible = false;
+
     constructor({ initialVideo, optionSystem }) {
         this.initialVideo = initialVideo;
         this.optionSystem = optionSystem;
@@ -6,6 +8,7 @@ class Scenario {
     }
 
     start() {
+        this.#visible = true;
         window.currentVideo = this.initialVideo;
 
         this.initialVideo.onended(() => {
@@ -18,9 +21,11 @@ class Scenario {
 
     end() {
         this.optionSystem.hide();
+        this.#visible = false;
     }
 
     draw() {
+        if (!this.#visible) return;
         image(this.initialVideo, 0, 0, width, height);
         this.optionSystem.draw();
     }
