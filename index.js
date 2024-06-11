@@ -4,6 +4,7 @@ import StartMenu from "./src/StartMenu.js";
 import VolumeSlider from "./src/VolumeSlider.js";
 
 window.currentVideo = null;
+window.backgroundAudio = null;
 
 let volumeSlider;
 
@@ -22,6 +23,7 @@ let startMenu;
 
 function setup() {
     createCanvas(900, 600);
+    window.backgroundAudio = createAudio("./assets/musicafondo.mp3");
 
     volumeSlider = new VolumeSlider();
 
@@ -29,6 +31,7 @@ function setup() {
         onStart: () => {
             selection1.start();
             startMenu.end();
+            window.backgroundAudio.play();
         },
     });
 

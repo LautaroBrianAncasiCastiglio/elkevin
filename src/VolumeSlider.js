@@ -8,8 +8,8 @@ class VolumeSlider {
     }
 
     updateVolume() {
-        if (window.currentVideo)
-            window.currentVideo.volume(this.slider.value());
+        if (window.backgroundAudio)
+            window.backgroundAudio.volume(this.slider.value());
     }
 }
 
