@@ -1,6 +1,6 @@
 class StartMenu {
     #visible = true;
-    image = loadImage("../assets/rb20.jpg");
+    image = loadImage("../assets/pantallaprincipal.png");
 
     constructor({ onStart }) {
         this.onStart = onStart;
