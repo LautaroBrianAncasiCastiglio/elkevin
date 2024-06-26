@@ -31,6 +31,7 @@ function setup() {
         onStart: () => {
             selection1.start();
             startMenu.end();
+            window.backgroundAudio.loop();
             window.backgroundAudio.play();
         },
     });
